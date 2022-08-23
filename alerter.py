@@ -5,13 +5,36 @@ def network_alert_stub(celcius):
     # Return 200 for ok
     # Return 500 for not-ok
     # stub always succeeds and returns 200
-    return 200
+    if celcius < 100:
+        return 200
+    else:
+        return 500
 
-def converter(func):
-    return (farenheit - 32)*5/9
-
+class celcius:
+    def __init__(self, temperature=32):
+        self.temperature = temperature
+        
+    def to_celcius(self):
+        return (self.temperature-32)*5/9
+    
+    @property
+    def temperature(self):
+        return self._temerature
+    
+    @temperature.setter
+    def temperature(self, value):
+        if value < 32:
+            raise ValueError("Temperature below freezing point")            
+        elif value > 212:
+            raise ValueError("Temperature above Boiling point")
+        elif value <= -459:
+            raise ValueError("Temperature below -459 is not possible")
+         
+        self._temperature = value
+        
 def alert_in_celcius(farenheit):
-    celcius = converter(farenheit)
+    converter = celcius()
+    celcius = converter.to_celcius(farenheit)
     returnCode = network_alert_stub(celcius)
     if returnCode != 200:
         # non-ok response is not an error! Issues happen in life!
@@ -19,10 +42,10 @@ def alert_in_celcius(farenheit):
         # However, this code doesn't count failures!
         # Add a test below to catch this bug. Alter the stub above, if needed.
         global alert_failure_count
-        alert_failure_count += 0
+        alert_failure_count += 1
 
 
 alert_in_celcius(400.5)
 alert_in_celcius(303.6)
 print(f'{alert_failure_count} alerts failed.')
-print('All is well (maybe!)')
+#print('All is well (maybe!)')
