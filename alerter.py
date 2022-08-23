@@ -10,30 +10,18 @@ def network_alert_stub(celcius):
     else:
         return 500
 
-class celcius:
-    def __init__(self, temperature=32):
-        self.temperature = temperature
-        
-    def to_celcius(self):
-        return (self.temperature-32)*5/9
-    
-    @property
-    def temperature(self):
-        return self._temerature
-    
-    @temperature.setter
-    def temperature(self, value):
-        if value < 32:
-            raise ValueError("Temperature below freezing point")            
-        elif value > 212:
+class converter:
+    @staticmethod
+    def to_celcius(temp):
+        if temp < 32:
+           raise ValueError("Temperature below freezing point")            
+        elif temp > 212:
             raise ValueError("Temperature above Boiling point")
-        elif value <= -459:
-            raise ValueError("Temperature below -459 is not possible")
-         
-        self._temperature = value
-        
+        elif temp <= -459:
+            raise ValueError("Temperature below -459 is not possible") 
+        return (temp-32)*5/9
+ 
 def alert_in_celcius(farenheit):
-    converter = celcius()
     celcius = converter.to_celcius(farenheit)
     returnCode = network_alert_stub(celcius)
     if returnCode != 200:
