@@ -18,6 +18,7 @@ class colors:
         return formatted_string
     
     def print_on_console(self, formatted_text_arr):
+        pass
 
 #result = print_color_map()
 #assert(result == 25)
