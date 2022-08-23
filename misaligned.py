@@ -7,8 +7,8 @@ class colors:
         self.formatted_string = []
         
     def print_color_map(self):
-        for i, major in enumerate(major_colors):
-            for j, minor in enumerate(minor_colors):
+        for i, major in enumerate(self.major_colors):
+            for j, minor in enumerate(self.minor_colors):
                 temp = i*5+j
                 self.formatted_string.append(self.formatter(temp, major, minor))
         return len(major_colors) * len(minor_colors), self.formatted_string
@@ -18,7 +18,8 @@ class colors:
         return formatted_string
     
     def print_on_console(self, formatted_text_arr):
-        pass
+        for i in formatted_text_arr:
+            print(i)
 
 #result = print_color_map()
 #assert(result == 25)
