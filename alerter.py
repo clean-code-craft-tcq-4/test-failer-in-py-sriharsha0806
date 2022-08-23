@@ -13,13 +13,10 @@ def network_alert_stub(celcius):
 class converter:
     @staticmethod
     def to_celcius(temp):
-        if temp < 32:
-           raise ValueError("Temperature below freezing point")            
-        elif temp > 212:
-            raise ValueError("Temperature above Boiling point")
-        elif temp <= -459:
+        C = (temp-32)*5/9
+        if C <= -273.15:
             raise ValueError("Temperature below -459 is not possible") 
-        return (temp-32)*5/9
+        return C
  
 def alert_in_celcius(farenheit):
     celcius = converter.to_celcius(farenheit)
