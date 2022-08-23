@@ -1,5 +1,6 @@
-class tshirts:
-    def size(self, cms):
+class tshirts:    
+    @staticmethod
+    def size(cms):
         if cms < 38:
             return 'S'
         elif cms in range(38,43):
@@ -10,7 +11,4 @@ class tshirts:
             return 'Custom Design is required'
 
 
-assert(size(37) == 'S')
-assert(size(40) == 'M')
-assert(size(43) == 'L')
-print("All is well (maybe!)\n")
+
