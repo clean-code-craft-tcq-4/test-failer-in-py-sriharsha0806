@@ -11,15 +11,15 @@ class colors:
             for j, minor in enumerate(self.minor_colors):
                 temp = i*5+j
                 self.formatted_string.append(self.formatter(temp, major, minor))
-        return len(major_colors) * len(minor_colors), self.formatted_string
+        return len(self.major_colors) * len(self.minor_colors), self.formatted_string
     
     def formatter(self, idx, Major, Minor):
         formatted_string = f'{idx}|{Major}|{Minor}'
         return formatted_string
     
-    def print_on_console(self, formatted_text_arr):
-        for i in formatted_text_arr:
-            print(i)
+    def print_on_console(self, string):
+        for i in string:
+            print(i, "\n")
 
 #result = print_color_map()
 #assert(result == 25)
