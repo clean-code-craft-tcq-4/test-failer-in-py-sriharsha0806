@@ -15,7 +15,7 @@ class converter:
     def to_celcius(temp):
         C = (temp-32)*5/9
         if C <= -273.15:
-            raise ValueError("Temperature below -459 is not possible") 
+            raise ValueError("Temperature below -273.15 is not possible") 
         return C
  
 def alert_in_celcius(farenheit):
