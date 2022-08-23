@@ -19,6 +19,6 @@ class colors:
     
     def print_on_console(self, formatted_text_arr):
 
-result = print_color_map()
-assert(result == 25)
-print("All is well (maybe!)\n")
+#result = print_color_map()
+#assert(result == 25)
+#print("All is well (maybe!)\n")
